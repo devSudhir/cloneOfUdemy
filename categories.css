@@ -1,0 +1,43 @@
+#parent_div,
+#child_div,
+#grandChild_div {
+  display: none;
+  width: 270px;
+  min-height: 100vh;
+  padding: 10px;
+  border-left: 1px solid #333;
+  background: #fff;
+}
+
+#parent_div ul,
+#child_div ul,
+#grandChild_div ul {
+  list-style: none;
+}
+#parent_div ul li,
+#child_div ul li,
+#grandChild_div ul li {
+  padding: 10px;
+}
+#parent_div ul li a,
+#child_div ul li a,
+#grandChild_div ul li a {
+  color: #333;
+  text-decoration: none;
+}
+#parent_div,
+#child_div,
+#grandChild_div {
+  position: absolute;
+  z-index: 40;
+  top: 12%;
+}
+#parent_div {
+  left: 8%;
+}
+#child_div {
+  left: 25%;
+}
+#grandChild_div {
+  left: 43%;
+}

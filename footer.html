@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #links {
+       line-height: 1.6rem;
+    display: grid;
+    padding: 30px 50px;
+    grid-template-columns: 20% 20% 20% 40%;
+      }
+      #links ul {
+        flex-grow: 2;
+        list-style: none;
+      }
+      #links a {
+        text-decoration: none;
+        color: rgb(15,124,144);
+        font-size: 15px;
+      }
+      .languageRight {
+          text-align:end;
+      }
+      .languageRight a{
+        padding:12px 40px;
+        border:1px solid rgb(123,122,117);
+      }
+      .languageRight a>img{
+          width:12px
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        column-gap: 1200px;
+        align-items: center;
+      }
+      .logo {
+        margin-top:25px;
+      }
+      .udemyLogo {
+        width: 7vw;
+        height: 2.8vw;
+      }
+      .cursorPointer:hover {
+        cursor: pointer;
+        outline: none;
+      }
+      .fooBox{
+        font-size:12px;
+        color: gray;
+      }
+    </style>
+</head>
+<body>
+    <footer>
+        <div>
+            <div id="links">
+                <ul>
+                  <li><a href="">Udemy for Business</a></li>
+                  <li><a href="">Teach on Udemy</a></li>
+                  <li><a href="">Get the app</a></li>
+                  <li><a href="">About us</a></li>
+                  <li><a href="">Contact us</a></li>
+                </ul>
+                <ul>
+                  <li><a href="">Careers</a></li>
+                  <li><a href="">Blog</a></li>
+                  <li><a href="">Help and support</a></li>
+                  <li><a href="">Affiliate</a></li>
+                </ul>
+                <ul>
+                  <li><a href="">Terms</a></li>
+                  <li><a href="">Privacy Policy</a></li>
+                  <li><a href="">Sitemap</a></li>
+                  <li><a href="">Featured courses</a></li>
+                </ul>
+                <ul class="languageRight"> 
+                 <li> <a href="">  <img
+                          src="https://image.flaticon.com/icons/png/128/591/591788.png"
+                          alt="language logo"
+                        /> English</a></li>
+              
+              </div>
+        </div>
+        
+            <div class="logo">
+              <img
+                class="udemyLogo cursorPointer"
+                src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg"
+                alt="Udemy logo"
+              />
+              <div class="fooBox">&copy;2021 Udemy Inc.</div>
+            </div>
+            
+          </footer>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .headContent > nav > ul {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        height: 5rem;
+        margin-top: -0.7rem;
+        justify-content: center;
+        position: relative;
+        margin-bottom: -4px;
+      }
+      .headContent > nav > ul > li {
+        margin-right: 0.4%;
+      }
+      .headContent > nav > ul > li:nth-child(3) {
+        flex-grow: 2;
+        flex-shrink: 3;
+      }
+      .udemyLogo {
+        width: 110px;
+        height: 32px;
+        margin-left: -2rem;
+      }
+      .navText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        margin-top: -0.2rem;
+        text-align: center;
+        width: 150px;
+      }
+      .reduce-width {
+        width: 100px;
+      }
+      .navText > a:hover {
+        color: rgb(15, 124, 144);
+      }
+      .navText > a {
+        text-decoration: none;
+        font-size: 0.8rem;
+        color: rgb(60, 59, 55);
+      }
+      .cartIcon {
+        color: #73726c;
+        width: 1.2rem;
+        height: 1.3rem;
+      }
+      .btn {
+        margin-right: 0px;
+      }
+      .btn-medium {
+        height: 2.7rem;
+        width: 100px;
+        border: 1px solid rgb(40, 150, 169);
+        color: rgb(15, 124, 144);
+        font-weight: bold;
+        text-align: center;
+        border-radius: 0.2rem;
+      }
+      .btn-bgcolor {
+        color: white;
+        background-color: rgb(15, 124, 144);
+      }
+      .btn-hover1:hover {
+        color: black;
+        cursor: pointer;
+        outline: none;
+      }
+      .btn-hover2:hover {
+        background-color: black;
+        cursor: pointer;
+        outline: none;
+      }
+      .langIconbtn {
+        width: 2.7rem;
+        outline: none;
+      }
+      .langIconbtn:hover {
+        cursor: pointer;
+        outline: none;
+      }
+      .langIconbtn > img {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      .cartBtn {
+        outline: none;
+        background-color: transparent;
+        border: none;
+      }
+      .cartBtn:hover {
+        cursor: pointer;
+      }
+      .searchBox {
+        height: 3rem;
+        border-radius: 2rem;
+        border: 1px solid rgb(162, 159, 146);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .searchBox > button > img,
+      .searchBox2 > button > img {
+        height: 16px;
+        width: 16px;
+        background-color: white;
+      }
+      .searchBox > button,
+      .searchBox > input,
+      .searchBox2 > button,
+      .searchBox2 > input {
+        border: none;
+        outline: none;
+        background-color: white;
+        margin-left: 0.6rem;
+        cursor: pointer;
+      }
+      .searchBox > input {
+        cursor: text;
+        width: 85%;
+      }
+      input:focus {
+        outline: none;
+      }
+
+      .searchContent {
+        display: flex;
+        flex-direction: column;
+        width: 26rem;
+        height: 14rem;
+        box-sizing: border-box;
+        margin-top: -21.5rem;
+        background-color: white;
+        margin-left: 10rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        padding: 1.6rem 1.4rem;
+        justify-content: space-between;
+      }
+      .searchContent > div:nth-child(1) {
+        font-size: 44px;
+        font-weight: bold;
+      }
+      .searchContent > div:nth-child(2) {
+        color: rgb(60, 59, 55);
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+      }
+      .searchBox2 {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: 1px solid rgb(162, 159, 146);
+        width: 22rem;
+        border-radius: 0.3rem;
+      }
+      .searchBox2 > button {
+        align-items: flex-end;
+        margin-right: 0;
+      }
+
+      .searchBox2 > input {
+        width: 18.5rem;
+        color: rgb(115, 114, 108);
+        font-size: 14px;
+        margin-left: 0.8rem;
+      }
+      .searchBox2 > input:hover {
+        cursor: text;
+      }
+      .searchBox2 > button:hover {
+        cursor: pointer;
+      }
+      @media (min-width: 1296px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+        .bgimage {
+          background-image: url("https://img-c.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?Expires=1622384869&Signature=BYen~JF~wKt06wmjYLb4FIghI2sv0ypZC7rsbGzhMabF1LwHvumy6k8YZQ8453jL663jdeemg4uiaMC9rKRy4ZOAY2j1~-yel7rLCihB863w7zsTnKLBTdY5lsOfrbKYYNnNZjRlf5Y2KTLsb6tN5H8W69R~-EON9tjf0w-hLAsqPLq1jwtWft51gYm3e3kN-jOIPGsBXxAz1aUMLAi7OU2BIBw-5CZh2u5EbBAEmN~xS~rv-CfaOQMw1faupgzOncYBvJHPeIE0JnHdUJwdmczio0lFcgjltN24SiY9ercOYeKQBeQDHwoPpNqJy-cRC3-4BBlExDvOwVa4UybxZA__&Key-Pair-Id=APKAITJV77WS5ZT7262A");
+          width: 85vw;
+          height: 100%;
+          margin: auto;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1296px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+        .bgimage {
+          background-image: url("https://img-c.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?Expires=1622384869&Signature=BYen~JF~wKt06wmjYLb4FIghI2sv0ypZC7rsbGzhMabF1LwHvumy6k8YZQ8453jL663jdeemg4uiaMC9rKRy4ZOAY2j1~-yel7rLCihB863w7zsTnKLBTdY5lsOfrbKYYNnNZjRlf5Y2KTLsb6tN5H8W69R~-EON9tjf0w-hLAsqPLq1jwtWft51gYm3e3kN-jOIPGsBXxAz1aUMLAi7OU2BIBw-5CZh2u5EbBAEmN~xS~rv-CfaOQMw1faupgzOncYBvJHPeIE0JnHdUJwdmczio0lFcgjltN24SiY9ercOYeKQBeQDHwoPpNqJy-cRC3-4BBlExDvOwVa4UybxZA__&Key-Pair-Id=APKAITJV77WS5ZT7262A");
+          width: 100%;
+          height: 25rem;
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+        }
+        .searchContent {
+          margin-left: 5%;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1200px) {
+        .searchContent {
+          width: 21rem;
+          margin-top: -23.5rem;
+          margin-left: 1.5rem;
+        }
+        .searchContent > div:nth-child(1) {
+          font-size: 33px;
+        }
+        .searchContent > div:nth-child(2) {
+          font-size: 1rem;
+        }
+        .searchBox2 {
+          width: 18rem;
+        }
+      }
+      @media (min-width: 0px) and (max-width: 700px) {
+        .searchContent {
+          display: flex;
+          flex-direction: column;
+          height: 14rem;
+          max-width: 100%;
+          min-width: 400px;
+          margin-top: -12.6rem;
+          background-color: transparent;
+          margin-left: 0rem;
+          font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+        .bgimage {
+          background-image: url("https://img-c.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?Expires=1622384869&Signature=BYen~JF~wKt06wmjYLb4FIghI2sv0ypZC7rsbGzhMabF1LwHvumy6k8YZQ8453jL663jdeemg4uiaMC9rKRy4ZOAY2j1~-yel7rLCihB863w7zsTnKLBTdY5lsOfrbKYYNnNZjRlf5Y2KTLsb6tN5H8W69R~-EON9tjf0w-hLAsqPLq1jwtWft51gYm3e3kN-jOIPGsBXxAz1aUMLAi7OU2BIBw-5CZh2u5EbBAEmN~xS~rv-CfaOQMw1faupgzOncYBvJHPeIE0JnHdUJwdmczio0lFcgjltN24SiY9ercOYeKQBeQDHwoPpNqJy-cRC3-4BBlExDvOwVa4UybxZA__&Key-Pair-Id=APKAITJV77WS5ZT7262A");
+          width: 100%;
+          height: 25rem;
+          background-repeat: no-repeat;
+          background-size: 100%;
+          min-width: 700px;
+        }
+        .searchContent > div:nth-child(2) {
+          min-width: 700px;
+          margin-top: -2rem;
+        }
+        .searchContent > div:nth-child(1) {
+          margin-bottom: 2.5rem;
+          display: block;
+          font-size: 37px;
+        }
+        .searchBox2 {
+          width: 600px;
+          margin-bottom: 2rem;
+        }
+        .searchBox2 > input {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="headContent">
+      <nav>
+        <ul>
+          <li>
+            <img
+              class="udemyLogo"
+              src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg"
+              alt="logo"
+            />
+          </li>
+          <li class="navText reduce-width"><a href="">Categories</a></li>
+          <li style="flex-basis: 42vw">
+            <div class="searchBox">
+              <button>
+                <img
+                  src="https://image.flaticon.com/icons/png/512/482/482631.png"
+                  alt="search logo"
+                />
+              </button>
+              <input type="search" placeholder="Search for anything" />
+            </div>
+          </li>
+          <li style="margin-right: -2%" class="navText">
+            <a href=""><span>Udemy for Business</span></a>
+          </li>
+          <li style="margin-right: -1%; margin-left: 0%" class="navText">
+            <a href=""><span>Teach On Udemy</span></a>
+          </li>
+          <li style="margin-right: 1%">
+            <button class="cartBtn">
+              <img
+                class="cartIcon"
+                src="https://image.flaticon.com/icons/png/128/628/628556.png"
+                alt="cart"
+              />
+            </button>
+          </li>
+          <li><button class="btn-medium btn-hover1">Log in</button></li>
+          <li>
+            <button class="btn-medium btn-bgcolor btn-hover2">Sign in</button>
+          </li>
+          <li>
+            <button class="btn-medium langIconbtn">
+              <img
+                src="https://image.flaticon.com/icons/png/128/591/591788.png"
+                alt="language logo"
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <div class="container">
+        <div class="bgimage"></div>
+        <div class="searchContent">
+          <div><span>Dream up</span></div>
+          <div>
+            <span
+              >Ambition accepted. Learn the latest skills to reach your
+              professional goals.</span
+            >
+          </div>
+          <div class="searchBox2">
+            <input type="search" placeholder="What do you want to learn?" />
+            <button>
+              <img
+                src="https://image.flaticon.com/icons/png/512/482/482631.png"
+                alt="search logo"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>

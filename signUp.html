@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+
+    /* html {
+        font-family: "Roboto", sans-serif;
+      } */
+    .cursorPointer:hover {
+      cursor: pointer;
+      outline: none;
+    }
+
+    .navText {
+      font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+      font-weight: 400;
+      color: rgb(60, 59, 55);
+      font-size: 14px;
+    }
+
+    .navText1 {
+      font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+      font-weight: 400;
+      color: rgb(60, 59, 55);
+      font-size: 14px;
+      margin-right: 0px;
+      padding: 0px;
+      width: 122px;
+      margin: 0rem;
+    }
+
+    .navText2 {
+      font-family: sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+      font-weight: 400;
+      color: rgb(60, 59, 55);
+      font-size: 14px;
+      padding: 0px;
+      width: 105px;
+      margin: 0rem;
+      width: 105px;
+      ;
+
+    }
+
+    header {
+      width: 100%;
+      height: 12vh;
+      -webkit-box-shadow: 0 8px 6px -6px gray;
+      -moz-box-shadow: 0 8px 6px -6px gray;
+      box-shadow: 0 8px 6px -6px gray;
+      height: 70px;
+      -webkit-box-shadow: 0 8px 6px -6px rgb(218, 214, 214);
+      ;
+      -moz-box-shadow: 0 8px 6px -6px rgb(218, 214, 214);
+      ;
+      box-shadow: 0 8px 6px -6px rgb(218, 214, 214);
+      overflow: hidden;
+      margin-bottom: 0px;
+      /* position: relative; */
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+    }
+
+    #dropdownbtn {
+      display: none;
+      padding: 5px;
+      border: none;
+    }
+
+    #overlay div {
+      transition: all 1s ease-in;
+    }
+
+    #first {
+      display: none;
+      width: 40vw;
+      padding: 2vw;
+      background: #fff;
+      color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 3;
+      overflow: auto;
+    }
+
+    #first a,
+    #second a {
+      padding: 10px 0;
+      font-weight: 600;
+    }
+
+    #subfirst1 a {
+      color: #0f7c90;
+    }
+
+    #subfirst1 *,
+    #subfirst3 * {
+      display: block;
+    }
+
+    #subfirst2>div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #subfirst2 button,
+    #second button {
+      padding: 5px;
+      border: none;
+    }
+
+    #second {
+      display: none;
+      width: 40vw;
+      height: 100vh;
+      background-color: #fff;
+      color: #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #second>div:nth-child(1) {
+      background-color: fbfbf8;
+      padding: 20px 0;
+    }
+
+    #second>div p {
+      display: inline;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .setZ {
+      z-index: 5;
+    }
+
+    #closebtn {
+      display: none;
+      position: absolute;
+      left: 38vw;
+      top: -10px;
+    }
+
+    #overlay div {
+      padding: 10px;
+      margin: 5px;
+    }
+
+    .firstSection ul {
+      margin-left: 40px;
+    }
+
+    /* check above code till header w3 */
+    .firstSection ul,
+    .secondSection ul {
+      list-style: none;
+      display: flex;
+      /* justify-content: center; */
+      /* justify-content: center; */
+      align-items: center;
+    }
+
+    .firstSection>ul li {
+      /* margin: 0 0.8vw; */
+      margin: 0 12px;
+    }
+
+    .secondSection>ul>li {
+      /* margin: 0 0.3vw; */
+      margin: 0;
+      margin-left: 0.3vw;
+    }
+/* change */
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      width: 100%;
+      height: 70px;
+      flex-basis: 4vw;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1vw;
+      padding-top: .8vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
+      margin: auto;
+      position: absolute;
+    }
+
+    .navbar>div:nth-child(1) {
+      display: none;
+    }
+
+    .navbar>div:nth-child(3) {
+      flex-grow: 0;
+    }
+
+    .navbar>div:nth-child(4) {
+      flex-grow: 4;
+      margin-left: -1rem;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .udemyLogo {
+      width: 8vw;
+      height: 2.8vw;
+      margin-left: 0.5%;
+    }
+
+    .searchContainer {
+      display: flex;
+      /* flex: 1 1 50%; */
+      width: 100%;
+      position: relative;
+      border: 0.1vw solid #ccc;
+      border-radius: 50px;
+      overflow: hidden;
+      background-color: #FBFBF8;
+    }
+
+    .searchContainer>input {
+      cursor: text;
+      background-color: #FBFBF8;
+    }
+
+    .searchIcon {
+      color: gray;
+      padding: 0.5rem;
+      width: 2vw;
+    }
+
+    .searchBox {
+      border: 0;
+      padding: 0.5rem 0.5rem 0.5rem 0;
+      flex: 1;
+    }
+
+    .searchBox:focus {
+      outline: none;
+    }
+
+    .searchButton,
+    .cartBtn {
+      border: none;
+      background: transparent;
+    }
+
+    .searchButton {
+      padding: 0.5rem;
+    }
+
+    .cartBtn {
+      margin-right: 1vw;
+    }
+
+    .cartIcon {
+      color: #73726c;
+      width: 1.2rem;
+      height: 1.3rem;
+    }
+       /* this is newly added Id for span of showing no of items present in the cart */
+    #noOfCartItems{
+          padding: 0px 4px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    left: -1.5rem;
+    bottom: 0.8rem;
+
+    }
+
+    .btn-medium {
+      height: 2.7rem;
+      height: 2.4rem;
+      width: 100px;
+      border: 1px solid rgb(40, 150, 169);
+      color: rgb(15, 124, 144);
+      font-weight: bold;
+      text-align: center;
+      border-radius: 0.2rem;
+    }
+
+    .btn-bgcolor {
+      color: white;
+      background-color: rgb(15, 124, 144);
+    }
+
+    .btn-hover1:hover {
+      color: black;
+    }
+
+    .btn-hover2:hover {
+      background-color: black;
+    }
+
+    .langIconbtn {
+      width: 2.7rem;
+      outline: none;
+      margin-right: 0px;
+    }
+
+    .langIconbtn>img {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    .smallWindow {
+      display: none;
+    }
+    .udemyLogo {
+      width: 8vw;
+      height: 30px;
+      margin-top:12px;
+    }
+
+    .firstSection>ul>li:nth-child(2) {
+      width: 70%;
+      margin-left: 10px;
+    }
+
+    .firstSection>ul>li:nth-child(1) {
+      margin-left: 0px;
+    }
+    .navText {
+  position: relative;
+  display: inline-block;
+}
+.navText .tooltiptext {
+  visibility: hidden;
+  background-color: white;
+  color: rgb(85, 82, 82);
+  text-align: center;
+  border-radius: 6px;
+  padding: 1.6rem;
+  box-sizing: border-box;
+  line-height:23px;
+  position: absolute;
+  z-index: 1;
+  bottom: -1100%;
+  right: 0%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+.navText .tooltiptext::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+}
+.navText:hover .tooltiptext{
+  visibility: visible;
+  opacity: 1;
+}
+.tooltiptext{
+  font-size:18px;
+  display: none;
+}
+.tooltiptext b{
+  display: block;
+}
+.tooltiptext:hover{
+  visibility: visible;
+  opacity: 1;
+}
+.navText button{
+  width: 250px;
+  height:40px;
+  margin-top:15px;
+  background-color:#0F7C90;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size:17px;
+}
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      height: 45px;
+      width: 128px;
+    }
+
+    .dropdown div:nth-child(1) {
+      margin-top: 10px;
+      padding-bottom: 40px;
+      /* border: 1px solid; */
+    }
+
+    .dropdown-content {
+      display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    padding: 10px;
+    height: 150px;
+    width: 280px;
+    right: 0%;
+    bottom: -140px;
+    margin-left: -60px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+}
+    
+
+    .dropdown-content b {
+      color: black;
+      /* padding: 12px 16px; */
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .navText button {
+      width: 250px;
+      height: 40px;
+      margin-top: 15px;
+      background-color: #0F7C90;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      font-size: 17px;
+      margin-left: 5px;
+    }
+
+    @media (max-width: 1080px) {
+      .firstSection>ul>li:nth-child(3) {
+        display: none;
+      }
+    }
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+      .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+      @media (max-width: 1080px) {
+        .firstSection > ul > li:nth-child(3) {
+          display: none;
+        }
+        /* .searchContainer {
+               flex-grow: 2;
+             } */
+      }
+      @media (min-width: 1366px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin-top: -4px;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1366px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin-top: -4px;
+          
+        }
+      }
+      @media (max-width: 850px) {
+        .firstSection > ul > li:nth-child(4) {
+          display: none;
+        }
+        /* .searchContainer {
+               flex-grow: 3;
+             } */
+      }
+      @media (max-width: 800px) {
+        .dropdown {
+          display: inline-block;
+          width: 5vw;
+        }
+        .smallWindow {
+          display: flex;
+          width: 15vw;
+        }
+        .smallWindow > button {
+          margin-right: 3vw;
+        }
+        .navbar > div:nth-child(1) {
+          display: flex;
+          flex-grow: 1;
+        }
+        .navbar > div:nth-child(2) {
+          width: 65vw;
+          margin: auto;
+        }
+        .firstSection,
+        .secondSection {
+          display: none;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1200px) {
+        .searchBox2 {
+          width: 18rem;
+        }
+      }
+      @media (min-width: 0px) and (max-width: 700px) {
+        .searchBox2 {
+          width: 600px;
+          margin-bottom: 2rem;
+        }
+        .searchBox2 > input {
+          width: 90%;
+        }
+      }
+
+      /* style the container */
+      .lContainer {
+        /* display: flex; */
+        /* justify-content: center; */
+        /* text-align: center; */
+        /* align-items: center; */
+        width: 100%;
+        /* position: relative; */
+        border-radius: 3px;
+        padding: 20px 0 0px 0;
+        /* border: 1px solid; */
+      }
+      form {
+        width: 22%;
+        margin: 0px auto;
+        /* border: 1px solid */
+        
+      }
+      /* style inputs and link buttons */
+      input,
+      .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 2px;
+        /* opacity: 0.85; */
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+      }
+      .btn {
+        margin: 8px 0;
+      }
+      input:hover,
+      .btn:hover {
+        opacity: 1;
+      }
+
+      /* style the submit button */
+      input[value="Sign Up"] {
+        background-color: #ec5252;
+        color: white;
+        cursor: pointer;
+        height:45px;
+        font-weight: bold;
+        border-radius: 2px;
+        margin-bottom: 10px;;
+        text-align: center;
+      }
+
+      input[value="Sign Up"]:hover {
+        background-color: #992337;
+      }
+      input:focus {
+        outline: none;
+      }
+      .input-container {
+        display: flex;
+        width: 100;
+        height:50px;
+        border: 1px solid #8A92A3 ;
+        border-radius:5px;
+        margin-bottom: 8px;
+      }
+      .icon {
+        /* padding: 10px; */
+        /* background-color: #fdfdfd; */
+        color: #aaa;
+        min-width: 10%;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .input-field {
+        width: 90%;
+        padding: 10px;
+        background: none;
+        font-size:18px;
+        font: inherit;
+      }
+      .row{
+        width:400px;
+        height: 40px;
+        margin: 0px auto;
+        /* border: 1px solid; */
+        border-bottom: 1px solid;
+        border-color: #DEDFE0;
+        margin-bottom:25px;
+      }
+      .row b{
+        margin-left: 35px;
+      }
+      form{
+        position: relative;
+      }
+      .form-group{
+        text-align: center;
+        margin-top: 15px;
+      }
+      .form-group a, .box1 a{
+        text-decoration: none;
+        color: #008CBF;
+        font-size: 15px;
+        font-family: sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+        font-weight: 350;
+      }
+      .form-group a:hover{
+        color: #1b3136;
+      }
+      .sign{
+        margin-top:25px; 
+      }
+      .sign b{
+        color: #007791;
+      }
+      .sign b:hover{
+        color: #1b3136;
+      }
+      .a-tag{
+        text-decoration: none;
+      }
+      .flexBox{
+        display:flex;
+        width:100;
+        height:80px;
+        margin-top: 50px;
+        border:1px solid #dcdacb;
+        column-gap: 60px;
+      }
+      .box1, .box2{
+        width: 717px;
+        height:80px;
+        /* border:1px solid gray; */
+      }
+      .box2{
+        width: 600px;
+        height:80px;
+        margin-left: 100px;
+        /* border:1px solid gray; */
+      }
+      .box1 div{
+        margin-top:25px;
+        margin-left: 40px;
+        font-weight: bold;
+        font-size:18px;
+      }
+      .box1 b{
+        font-size:18px;
+      }
+      .box2{
+        display: flex;
+        column-gap: 25px;
+        justify-content:center;
+      }
+      .box2 div{
+        margin-top: 25px;
+      }
+
+        #links {
+       line-height: 1.6rem;
+    display: grid;
+    padding: 30px 50px;
+    grid-template-columns: 20% 20% 20% 40%;
+      }
+      #links ul {
+        flex-grow: 2;
+        list-style: none;
+        
+      }
+      #links a {
+        text-decoration: none;
+        font-size: 15px;
+        color:#007791;
+      }
+      .languageRight {
+          text-align:end; 
+      }
+      .languageRight a{
+        padding:12px 20px;
+        border:1px solid rgb(123,122,117);
+        border-radius: 5px;
+        
+      }
+      .languageRight a>img{
+          width:15px;
+          margin-right: 3px;
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        column-gap: 1200px;
+        align-items: center;
+        margin-bottom:40px;
+      }
+      .logo {
+        margin-top:25px;
+      }
+      .udemyLogo {
+        width: 7vw;
+        height: 2.8vw;
+      }
+      .cursorPointer:hover {
+        cursor: pointer;
+        outline: none;
+      }
+      .fooBox{
+        font-size:12px;
+        color: gray;
+      }
+      .check{
+        height:20px;
+        margin-left: -90px;
+        margin-top: 5px;
+      }
+      .info{
+        margin-top: 5px;
+        margin-left: -80px;
+        font-size:15px;
+      }
+      .checkCont{
+        border: none;
+      }
+      .indicator{
+        height:5px;
+        width:310px;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        margin: 10px 0;
+        column-gap: 1px;
+        display: none;
+      }
+      .indicator span{
+        width:100%;
+        height:100%;
+        background:lightgrey;
+        border-radius: 5px;
+        position: relative;
+      }
+      .showBtn{
+        position: absolute;
+        right: 10px;
+        top: 140px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size:15px;
+        font-weight: 600;
+        display: none;
+      }
+      .indicator span.tobe{
+        margin: 0px 3px;
+      }
+      .indicator span:before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius:5px;
+      }
+      .indicator span.active.weak:before{
+        background-color: #EC5252; 
+      }
+      .indicator span.active.tobe:before{
+        background-color: #FFE48C
+      }
+      .indicator span.active.medium:before{
+        background-color: #46C28E
+      }
+      .indicator span.active.strong:before{
+        background-color: #208058
+      }
+      .text{
+        font-size: 10px;
+        width: 125px;
+        /* border: 1px solid; */
+        margin-left: 15px;
+        display:none;
+      }
+      .boxPolicy{
+        width: 335px;
+        height: 30px;
+        border:none;
+        border-bottom: 1px solid #DEDFE0;
+      }
+      .boxPolicy div{
+        font-size:10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .boxPolicy div a{
+        text-decoration: none;
+      }
+    </style>
+  <body>
+    <header>
+      <nav class="navbar">
+        <button onclick="showfirst()" id="dropdownbtn"><i class="fas fa-bars fa-2x"></i></button>
+        <!-- <a id="dropdownbtn" onclick="showfirst(event)" ><i  class="fas fa-bars fa-2x"></i></a> -->
+  
+        <div id="overlay">
+          <div id="first">
+            <div id="subfirst1">
+              <a href="login.html">Log In</a>
+              <a href="signup.html">Sign Up</a>
+            </div>
+            <hr />
+            <h3>Most Popular</h3>
+            <div id="subfirst2">
+  
+            </div>
+            <hr />
+            <h3>More from Udemy</h3>
+            <div id="subfirst3">
+  
+              <a href="#">Udemy for Business</a>
+              <a href="#">Get the app</a>
+              <a href="#">Invite friends</a>
+              <a href="#">Help</a>
+              <button>English</button>
+            </div>
+          </div>
+          <div id="second"></div>
+          <div id="closebtn" class="setZ">
+            <button>
+              <i class="far fa-times-circle fa-3x"></i>
+            </button>
+          </div>
+        </div>
+        <div class="logo"><a href="landing-page-draft1.html">
+          <img class="udemyLogo cursorPointer" src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg"
+            alt="Udemy logo" /></a>
+        </div>
+        <div class="firstSection">
+          <ul>
+            <li><a onmouseover="showCategoriesList()" class="navText" href="#">Categories</a></li>
+            <li>
+              <div class="searchContainer">
+                <button class="searchButton cursorPointer">
+                  <i class="fa fa-search searchIcon"></i>
+                </button>
+                <input class="searchBox" type="search" name="search" placeholder="Search for anything" />
+              </div>
+            </li>
+            <li class="navText1 hello">
+              <a class="navText dropdown" href="udemy-Copy.html">
+                <div>Udemy for Business</div><span class="dropdown-content"><b>Get your team access to over 5,500 top
+                    Udemy courses, anytime, anywhere.</b>
+                  <div><button><b>Try Udemy for Business</b></button></div>
+                </span>
+              </a>
+            <li class="navText2 hello">
+              <a class="navText dropdown" href="techOnUdemy.html">
+                <div>Teach On Udemy</div><span class="dropdown-content"><b>Turn what you know into an opportunity and
+                    reach millions around the world.</b>
+                  <div><button><b>Learn more</b></button></div>
+                </span>
+              </a>
+  
+          </ul>
+        </div>
+        <div class="secondSection">
+          <ul>
+            <li>
+              <button onclick="showCart()" class="cartBtn cursorPointer">
+                <img class="cartIcon" src="https://image.flaticon.com/icons/png/128/628/628556.png" alt="cart" />
+              </button>
+              <span id="noOfCartItems"></span>
+            </li>
+            <li>
+              <a href="login.html"><button class="btn-medium btn-hover1 cursorPointer">
+                  Log in
+                </button></a>
+            </li>
+            <li>
+              <a href="signUp.html"><button class="btn-medium btn-bgcolor btn-hover2 cursorPointer">
+                  Sign in
+                </button></a>
+            </li>
+            <li>
+              <button class="btn-medium langIconbtn cursorPointer">
+                <img src="https://image.flaticon.com/icons/png/128/591/591788.png" alt="language logo" />
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="smallWindow">
+          <button class="searchButton cursorPointer">
+            <i class="fa fa-search searchIcon"></i>
+          </button>
+          <button class="cartBtn cursorPointer">
+            <img class="cartIcon" src="https://image.flaticon.com/icons/png/128/628/628556.png" alt="cart" />
+          </button>
+        </div>
+      </nav>
+    </header>
+    <div class="lContainer">
+      <div class="row"><b>Sign Up and Start Learning!</b></div>
+      <form action="/action_page.php">
+
+        <div class="input-container">
+            <i class="fa fa-user icon"></i>
+            <input
+              class="input-field"
+              type="text"
+              placeholder="Full Name"
+              name="fname"
+              required
+            />
+          </div>
+
+        <div class="input-container">
+          <i class="fa fa-envelope icon"></i>
+          <input
+            class="input-field"
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="input-container">
+          <i class="fa fa-lock icon"></i>
+          <input onkeyup="trigger()"
+            class="input-field" id="psw"
+            type="password"
+            placeholder="Password"
+            name="psw"
+            re
+          />
+          <span class="showBtn">Show</span>
+        </div>
+        <div class="indicator">
+          <span class="weak"></span>
+          <!-- EC5252 -->
+          <span class="tobe"></span>
+          <!-- FFE48C -->
+          <span class="medium"></span>
+          <!-- 46C28E -->
+          <span class="strong"></span>
+          <!-- 208058 -->
+          <div>
+          <div class="text">Too weak</div></div>
+        </div>
+        
+        <div class="input-container checkCont">
+          <input
+            class="check"
+            type="checkbox"
+          />
+          <div class="info">I’m in for emails with exciting discounts and personalized recommendations</div>
+          
+        </div>
+        <input type="button" value="Sign Up" id="signup" onclick="signUp()" />
+        <div class="boxPolicy">
+          <div>By signing up, you agree to our <a href="https://www.udemy.com/terms/">Terms of Use</a> and <a href="https://www.udemy.com/terms/privacy/">Privacy Policy.</a></div>
+        </div>
+        <!-- <div class="form-group">or <a href="https://www.udemy.com/user/forgot-password/">Forgot Password</a></div> -->
+        <div class="form-group sign">Already have an account? <a href="https://www.udemy.com/join/login-popup/?locale=en_US&next=https%3A%2F%2Fwww.udemy.com%2Fjoin%2Flogin-popup%2F%3Flocale%3Den_US%26response_type%3Dhtml%26next%3Dhttps%253A%252F%252Fwww.udemy.com%252F&response_type=html"><b>Log In</b></a></div>
+        <!-- <div class="form-group log"><a><b>Log in with your organization</b></a></div> -->
+      </form>
+      <div class="flexBox">
+        <div class="box1">
+          <div>Top companies choose <a href="https://business.udemy.com/request-demo-in-mx/?user_type=visitor&utm_method=0&ref=footer-ad&locale=en_US&utm_source=marketplace"><b>Udemy for Business</b></a> to build in-demand career skills.
+        </div>
+      </div>
+        <div class="box2">
+          <div>
+            <img src="https://s.udemycdn.com/partner-logos/lyft-logo.svg" alt="lyft-logo">
+          </div>
+          <div>
+            <img src="https://s.udemycdn.com/partner-logos/adidas-logo.svg" alt="adidas-logo">
+          </div>
+          <div>
+            <img src="https://s.udemycdn.com/partner-logos/eventbrite-logo.svg" alt="eventbrite-logo">
+          </div>
+          <div>
+            <img src="https://s.udemycdn.com/partner-logos/surveymonkey-logo.svg" alt="surveymonkey-logo">
+          </div>
+          <div>
+            <img src="https://s.udemycdn.com/partner-logos/booking-logo.svg" alt="booking-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div>
+          <div id="links">
+              <ul>
+                <li><a href="">Udemy for Business</a></li>
+                <li><a href="">Teach on Udemy</a></li>
+                <li><a href="">Get the app</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Contact us</a></li>
+              </ul>
+              <ul>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Help and support</a></li>
+                <li><a href="">Affiliate</a></li>
+              </ul>
+              <ul>
+                <li><a href="">Terms</a></li>
+                <li><a href="">Privacy Policy</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Featured courses</a></li>
+              </ul>
+              <ul class="languageRight"> 
+               <li> <a href=""><img
+                        src="https://image.flaticon.com/icons/png/128/591/591788.png"
+                        alt="language logo" class="language"
+                      /> English</a></li>
+            
+            </div>
+      </div>
+      
+          <div class="logo">
+            <img
+              class="udemyLogo cursorPointer"
+              src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg"
+              alt="Udemy logo"
+            />
+            <div class="fooBox">&copy;2021 Udemy Inc.</div>
+          </div>
+          
+        </footer>
+  </body>
+</html>
+<script>
+   function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  window.onclick = function (event) {
+    if (!event.target.matches(".dropbtn")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
+        }
+      }
+    }
+  };
+  const indicator = document.querySelector('.indicator');
+  const input = document.getElementById('psw');
+  const weak = document.querySelector('.weak');
+  const tobe = document.querySelector('.tobe');
+  const medium = document.querySelector('.medium');
+  const strong = document.querySelector('.strong');
+  const text = document.querySelector('.text');
+  const showBtn = document.querySelector('.showBtn');
+
+  let regExgWeak = /[a-z]/;
+  let regExgTobe = /[0-9]/;
+  // let regExgMedium = /\d+/;
+  let regExgMedium = /[A-Z]/;
+  let regExgStrong = /.[!,@,#,$,%,^,&,*,_,-,~,(,)]/;
+  function trigger(){
+    if(input.value != ""){
+      indicator.style.display ='block';
+      indicator.style.display ='flex';
+      if(input.value.length <= 3 && (input.value.match(regExgWeak) || input.value.match(regExgTobe) || input.value.match(regExgMedium) || input.value.match(regExgStrong)))no=1;
+      // if(input.value.length >= 3 && (input.value.match(regExgWeak) || input.value.match(regExgTobe) || input.value.match(regExgMedium) || input.value.match(regExgStrong)))no=2;
+      if(input.value.length >= 6 && ((input.value.match(regExgWeak) && input.value.match(regExgTobe)) || (input.value.match(regExgWeak) && input.value.match(regExgStrong)) || (input.value.match(regExgTobe) && input.value.match(regExgStrong)) || (input.value.match(regExgWeak) && input.value.match(regExgMedium)) || (input.value.match(regExgMedium) && input.value.match(regExgStrong))|| (input.value.match(regExgTobe) && input.value.match(regExgMedium))))no=2;
+      if(input.value.length >= 6 && ((input.value.match(regExgWeak) && input.value.match(regExgTobe) && input.value.match(regExgMedium)) || (input.value.match(regExgWeak) && input.value.match(regExgStrong) && input.value.match(regExgMedium)) || (input.value.match(regExgStrong) && input.value.match(regExgWeak) && input.value.match(regExgTobe)) || (input.value.match(regExgMedium) && input.value.match(regExgStrong) && input.value.match(regExgTobe))))no=3;
+      if(input.value.length >= 6 && (input.value.match(regExgWeak) && input.value.match(regExgTobe) && input.value.match(regExgMedium) && input.value.match(regExgStrong)))no=4;
+      if(no == 1){
+        console.log(1)
+        weak.classList.add('active');
+        text.style.display = "block";
+        text.textContent = "Too weak";
+        text.classList.add('weak');
+      }
+      if(no == 2){
+        console.log(2)
+        weak.classList.add('active');
+        tobe.classList.add('active');
+        text.textContent = "Could be Stronger";
+        text.classList.add('tobe');
+      }
+      else{
+        tobe.classList.remove('active');
+        text.classList.remove('tobe');
+      }
+      if(no == 3){
+        console.log(3)
+        tobe.classList.add('active');
+        medium.classList.add('active');
+        text.textContent = "Medium password";
+        text.classList.add('medium');
+      }
+      else{
+        medium.classList.remove('active');
+        text.classList.remove('medium');
+      }
+      if(no == 4){
+        console.log(4)
+        medium.classList.add('active');
+        strong.classList.add('active');
+        text.textContent = "Strong password";
+        text.classList.add('strong');
+      }
+      else{
+        strong.classList.remove('active');
+        text.classList.remove('strong');
+      }
+      showBtn.style.display ='block';
+      showBtn.onclick = function(){
+        if(input.type=='password'){
+          input.type="text";
+        }
+        else{
+          input.type="password"
+        }
+      }
+    }else{
+      indicator.style.display ="none";
+      text.style.display = "none"
+    }
+  }
+  
+
+  function checkFullname(data){
+    let count = 0;
+    for(let  i = 0;i<data.length;i++){
+      if(data[i]==" "){
+        count++;
+      }
+    }
+   if(count>=1){
+     return true;
+   }else{
+     return false;
+   }
+ }
+  function signUp() {
+  var input_field = document.getElementsByClassName('input-field');
+  var signupFullname = input_field[0].value;
+  var signupEmail = input_field[1].value;
+  var signupPassword = input_field[2].value;
+
+  if(checkFullname(signupFullname)==true){
+
+  let udemyUser = {
+    signupFullname,
+    signupEmail,
+    signupPassword
+  }
+  let userData;
+  userData = localStorage.getItem('udemyUsers');
+  if(userData==null){
+    userData =[];
+  }else{
+    userData=JSON.parse(userData)
+  }
+  userData.push(udemyUser);
+  localStorage.setItem('udemyUsers',JSON.stringify(userData));
+  window.location.href="login.html"
+}else{
+  alert('Please fill valid Full name')
+}
+
+}
+    // This is newly added script for showing no of items present in cart
+let noOfCartItems=document.getElementById('noOfCartItems');
+let cartItem=JSON.parse(localStorage.getItem('cartItem'));
+noOfCartItems.innerHTML=`${cartItem.length}`
+function showCart(){
+  window.location.href ="after_cart.html"
+}
+  
+</script>

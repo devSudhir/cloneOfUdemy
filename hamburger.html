@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ham</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        position: relative;
+        width: 100vw;
+        height: 5vw;
+        background-color: yellow;
+        padding: 2vw;
+      }
+      .navbar {
+        position: absolute;
+      }
+      .navbar a {
+        text-decoration: none;
+      }
+      #overlay {
+        position: absolute;
+        top: -2.3vw;
+        left: -2.3vw;
+        width: 100vw;
+        height: 150vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+      }
+      #overlay div {
+        transition: all 1s ease-in;
+      }
+      #first {
+        display: none;
+        width: 40vw;
+        padding: 2vw;
+        background: #fff;
+        color: #333;
+        position: absolute;
+        top: -2.3vw;
+        left: -2.3vw;
+        z-index: 2;
+      }
+      #subfirst1 *,
+      #subfirst3 * {
+        display: block;
+      }
+      #subfirst2 > div {
+        display: flex;
+        justify-content: space-between;
+      }
+      #subfirst2 button {
+        padding: 10px;
+        border-radius: 50%;
+      }
+      #second {
+        display: none;
+        width: 40vw;
+        height: 100vh;
+        background-color: #fff;
+        color: #333;
+        position: absolute;
+        top: -2.3vw;
+        left: -2.3vw;
+      }
+      #second > div:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+      }
+      .setZ {
+        z-index: 5;
+      }
+      #closebtn {
+        display: none;
+        position: absolute;
+        left: 38vw;
+        top: -10px;
+      }
+
+      .navbar div {
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+      data-auto-a11y="true"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <i id="dropdownbtn" onclick="showfirst()" class="fas fa-bars fa-2x"></i>
+        <div id="overlay">
+          <div id="first">
+            <div id="subfirst1">
+              <a href="login.html">Log In</a>
+              <a href="signup.html">Sign Up</a>
+            </div>
+            <hr />
+
+            <div id="subfirst2">
+              <h3>Most Popular</h3>
+            </div>
+            <hr />
+
+            <div id="subfirst3">
+              <h3>More from Udemy</h3>
+              <a href="#">Udemy for Business</a>
+              <a href="#">Get the app</a>
+              <a href="#">Invite friends</a>
+              <a href="#">Help</a>
+              <button>English</button>
+            </div>
+          </div>
+          <div id="second"></div>
+          <div id="closebtn" class="setZ">
+            <button>
+              <i class="far fa-times-circle fa-3x"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </body>
+</html>
+<script>
+  function showOverlay() {
+    let overlay = document.getElementById("overlay");
+    overlay.style.display = "block";
+  }
+
+  let arrFirst = [
+    ["#", "Web development"],
+    ["#", "Mobile Development"],
+    ["#", "Game Development"],
+    ["#", "Entrepreneurship"],
+    ["#", "Business Analytics & Intelligence"],
+    ["#", "Digital Marketing"],
+    ["#", "Graphic Design & lllustration"],
+    ["#", "IT Certification"],
+    ["#", "Personal Transformation"],
+    ["#", "All categories"],
+  ];
+
+  function showfirst() {
+    showOverlay();
+    let subfirst2 = document.getElementById("subfirst2");
+    let closebtn = document.getElementById("closebtn");
+    let first = document.getElementById("first");
+    closebtn.style.display = "block";
+    first.style.display = "block";
+    subfirst2.innerHTML = null;
+    for (let i = 0; i < arrFirst.length; i++) {
+      let div = document.createElement("div");
+      div.innerHTML = `<a href=${arrFirst[i][0]}>${arrFirst[i][1]}</a><button onclick="showSecond(${i})">&#8250;</button>`;
+      subfirst2.appendChild(div);
+    }
+  }
+
+  let arrSecond = [
+    [
+      ["#", "Web development"],
+      ["#", "JavaScript"],
+      ["#", "React"],
+      ["#", "CSS"],
+      ["#", "Angular"],
+      ["#", "Django"],
+      ["#", "PHP"],
+      ["#", "Node.js"],
+      ["#", "Wordpress"],
+    ],
+    [],
+  ];
+
+  function showSecond(i) {
+    let second = document.getElementById("second");
+    second.style.display = "block";
+    let first = document.getElementById("first");
+    first.style.display = "none";
+    second.innerHTML = null;
+    second.setAttribute("class", "setZ");
+    let menu = document.createElement("div");
+    menu.innerHTML = `<button onclick="moveBack()">back</button><p>Menu</p>`;
+    second.appendChild(menu);
+    for (let j = 0; j < arrSecond[i].length; j++) {
+      let div = document.createElement("div");
+      div.innerHTML = `<a href=${arrSecond[i][j][0]}>${arrSecond[i][j][1]}</a>`;
+      second.appendChild(div);
+    }
+  }
+
+  function moveBack() {
+    let second = document.getElementById("second");
+    second.style.display = "none";
+    let first = document.getElementById("first");
+    first.style.display = "block";
+  }
+
+  window.onclick = function (event) {
+    console.log(event.target);
+    var closebtn = document.getElementById("closebtn");
+    var dropdown1 = document.getElementById("first");
+    var dropdown2 = document.getElementById("second");
+
+    if (
+      event.target.matches("#overlay") ||
+      event.target.matches("SVG") ||
+      event.target.matches("path")
+    ) {
+      closebtn.style.display = "none";
+      dropdown1.style.display = "none";
+      dropdown2.style.display = "none";
+      overlay.style.display = "none";
+    }
+  };
+</script>

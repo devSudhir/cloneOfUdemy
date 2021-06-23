@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #main {
+        max-height: 300px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        padding: 2vw 0;
+      }
+
+      #main > div {
+        position: relative;
+        width: 17%;
+        height: 40vh;
+      }
+      #main div img {
+        max-width: 100%;
+        border: 1px solid black;
+        border-radius: 0.75vw;
+      }
+      a {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        padding: 1.5vw;
+        z-index: 2;
+      }
+
+      a:hover {
+        background-color: teal;
+        color: yellow;
+      }
+      .next,
+      .previous {
+        top: -10vh;
+        background-color: hotpink;
+        color: black;
+      }
+      .previous {
+        left: 3vw;
+      }
+      .next {
+        right: 3vw;
+      }
+      .round {
+        border-radius: 50%;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      :root {
+        --star-size: 100%;
+        --star-color: #fff;
+        --star-background: gold;
+      }
+
+      .Stars {
+        --percent: calc(var(--rating) / 5 * 100%);
+
+        display: inline-block;
+        font-size: var(--star-size);
+        font-weight: 600;
+        line-height: 1;
+      }
+      .Stars:before {
+        content: "★★★★★";
+        letter-spacing: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--star-background) var(--percent),
+          var(--star-color) var(--percent)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      #star {
+        background: #e9e9e9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <a onclick="plusSlides(-1)" href="#" class="previous round">&#8249;</a>
+      <div class="slides fade"></div>
+      <div class="slides fade"></div>
+      <div class="slides fade"></div>
+      <div class="slides fade"></div>
+      <div class="slides fade"></div>
+      <a onclick="plusSlides(1)" href="#" class="next round">&#8250;</a>
+    </div>
+  </body>
+</html>
+<script>
+  var educationContent = [
+    {
+      img_source: "https://source.unsplash.com/1600x900/?nature,water",
+      course_name: "javascript",
+      Author: "Omkar",
+      rating: 4,
+      price: 5000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?technology,code",
+      course_name: "Html",
+      Author: "Mayur",
+      rating: 4.5,
+      price: 10000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?painting,photography",
+      course_name: "css",
+      Author: "Sudhir",
+      rating: 4,
+      price: 4000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?camera,water",
+      course_name: "Advanced javascript",
+      Author: "Swanand",
+      rating: 4.7,
+      price: 15000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?technology,sky",
+      course_name: "Database",
+      Author: "Nrupul",
+      rating: 4.8,
+      price: 50000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?helicopter,fighter",
+      course_name: "Ds and Algo",
+      Author: "Aman",
+      rating: 5,
+      price: 50000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?army,navy",
+      course_name: "Communication",
+      Author: "Yogesh",
+      rating: 3,
+      price: 1000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?clothes,shirt",
+      course_name: "Node",
+      Author: "MS Dhoni",
+      rating: 3.5,
+      price: 15000,
+    },
+    {
+      img_source: "https://source.unsplash.com/1600x900/?male,female",
+      course_name: "React js",
+      Author: "Albert",
+      rating: 4.4,
+      price: 20000,
+    },
+  ];
+  var slides = document.getElementsByClassName("slides");
+  var numberOfdivs = slides.length;
+
+  var slideIndex = 0;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    slideIndex += numberOfdivs * n - 1;
+    if (slideIndex > 1) {
+      showSlides(slideIndex);
+    } else {
+      slideIndex = 0;
+      showSlides(slideIndex);
+    }
+  }
+
+  function showSlides(n) {
+    for (let i = 0; i < numberOfdivs; i++) {
+      slides[i].innerHTML = "";
+    }
+
+    if (n + numberOfdivs - 1 > educationContent.length) {
+      slideIndex = 0;
+      n = 0;
+    }
+
+    let divNumber = 0;
+    for (let i = n; i < n + numberOfdivs; i++) {
+      slides[divNumber].style.display = "block";
+      slides[
+        divNumber++
+      ].innerHTML = `<img src=${educationContent[i].img_source}><div id="description"><h3>${educationContent[i].course_name}</h3><p>${educationContent[i].Author}</p><div id="star">${educationContent[i].rating}<p class="Stars" style="--rating: ${educationContent[i].rating};"></p></div><h3>${educationContent[i].price}</h3></div>`;
+    }
+  }
+</script>

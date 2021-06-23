@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      header {
+        width: 100%;
+        height: 70px;
+        -webkit-box-shadow: 0 8px 6px -6px rgb(218, 214, 214);
+        -moz-box-shadow: 0 8px 6px -6px rgb(218, 214, 214);
+        box-shadow: 0 8px 6px -6px rgb(218, 214, 214);
+        overflow: hidden;
+        margin-bottom: 40px;
+      }
+      .udemyLogo {
+        width: 8vw;
+        height: 2.8vw;
+      }
+      .navbar a {
+        text-decoration: none;
+      }
+      .navbar {
+        display: flex;
+        flex-basis: 4vw;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: .8vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+        margin: auto;
+      }
+      .navbar > div:nth-child(1) {
+        display: none;
+      }
+      .navbar > div:nth-child(2) {
+        flex-grow: 2;
+      }
+      .navbar > div:nth-child(3) {
+        flex-grow: 22;
+      }
+      .navbar > div:nth-child(4) {
+        flex-grow: 4;
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
+      .dropbtn {
+        background-color: #3498db;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #2980b9;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      .logo {
+        margin-right: 10px;
+      }
+      .firstSection ul,.secondSection ul {
+        list-style: none;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+      }
+      .firstSection > ul li {
+        margin: 0 12px;
+      }
+      .navText {
+        font-family: sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+        font-weight: 400;
+        color: rgb(60, 59, 55);
+        font-size: 14px;
+      }
+      .navText1 {
+        font-family: sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+        font-weight: 400;
+        color: rgb(60, 59, 55);
+        font-size: 14px;
+        margin-right: 0px;
+        padding: 0px;
+        width: 122px;
+      }
+      .navText2 {
+        font-family: sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+        font-weight: 400;
+        color: rgb(60, 59, 55);
+        font-size: 14px;
+        padding: 0px;
+        width: 105px;
+      }
+      .searchContainer {
+        display: flex;
+        /* flex: 1 1 50%; */
+        width: 44.2vw;
+        position: relative;
+        border: 0.1vw solid #ccc;
+        border-radius: 3vw;
+        overflow: hidden;
+        background-color: #FBFBF8;
+      }
+      .searchContainer > input {
+        cursor: text;
+        background-color: #FBFBF8;
+      }
+      .searchButton,
+      .cartBtn {
+        border: none;
+        background: transparent;
+      }
+      .searchButton {
+        padding: 0.5rem;
+      }
+      .cartBtn {
+        margin-right: 1vw;
+      }
+      .btn-medium {
+        height: 2.4rem;
+        width: 100px;
+        border: 1px solid rgb(40, 150, 169);
+        color: rgb(15, 124, 144);
+        font-weight: bold;
+        text-align: center;
+        border-radius: 0.2rem;
+      }
+      .btn-hover1:hover {
+        color: black;
+      }
+      .btn-bgcolor {
+        color: white;
+        background-color: rgb(15, 124, 144);
+      }
+      .btn-hover2:hover {
+        background-color: black;
+      }
+      .langIconbtn {
+        width: 2.7rem;
+        outline: none;
+        margin-right: 0px;
+      }
+
+      .langIconbtn > img {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      .smallWindow {
+        display: none;
+      }
+      .cursorPointer:hover {
+        cursor: pointer;
+        outline: none;
+      }
+      .searchIcon {
+        color: gray;
+        padding: 0.5rem;
+        width: 2vw;
+      }
+      .searchBox {
+        border: 0;
+        padding: 0.5rem 0.5rem 0.5rem 0;
+        flex: 1;
+      }
+      .searchBox:focus {
+        outline: none;
+      }
+      .searchBox2 > button > img {
+        height: 16px;
+        width: 16px;
+        background-color: white;
+      }
+      .searchBox2 > button,
+      .searchBox2 > input {
+        border: none;
+        outline: none;
+        background-color: white;
+        margin-left: 0.6rem;
+        cursor: pointer;
+      }
+      .searchBox > input {
+        cursor: text;
+        width: 85%;
+      }
+      input:focus {
+        outline: none;
+      }
+      .searchBox2 {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: 1px solid rgb(162, 159, 146);
+        width: 22rem;
+        border-radius: 0.3rem;
+      }
+      .searchBox2 > button {
+        align-items: flex-end;
+        margin-right: 0;
+      }
+
+      .searchBox2 > input {
+        width: 18.5rem;
+        color: rgb(115, 114, 108);
+        font-size: 14px;
+        margin-left: 0.8rem;
+      }
+      .searchBox2 > input:hover {
+        cursor: text;
+      }
+      .searchBox2 > button:hover {
+        cursor: pointer;
+      }
+      .secondSection > ul > li {
+        margin: 0;
+        margin-left: 0.3vw;
+      }
+      .cartIcon {
+        color: #73726c;
+        width: 1.2rem;
+        height: 1.3rem;
+      }
+      .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+      @media (max-width: 1080px) {
+        .firstSection > ul > li:nth-child(3) {
+          display: none;
+        }
+        /* .searchContainer {
+               flex-grow: 2;
+             } */
+      }
+      @media (min-width: 1366px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin-top: -4px;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1366px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin-top: -4px;
+          
+        }
+      }
+      @media (max-width: 850px) {
+        .firstSection > ul > li:nth-child(4) {
+          display: none;
+        }
+        /* .searchContainer {
+               flex-grow: 3;
+             } */
+      }
+      @media (max-width: 800px) {
+        .dropdown {
+          display: inline-block;
+          width: 5vw;
+        }
+        .smallWindow {
+          display: flex;
+          width: 15vw;
+        }
+        .smallWindow > button {
+          margin-right: 3vw;
+        }
+        .navbar > div:nth-child(1) {
+          display: flex;
+          flex-grow: 1;
+        }
+        .navbar > div:nth-child(2) {
+          width: 65vw;
+          margin: auto;
+        }
+        .firstSection,
+        .secondSection {
+          display: none;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1200px) {
+        .searchBox2 {
+          width: 18rem;
+        }
+      }
+      @media (min-width: 0px) and (max-width: 700px) {
+        .searchBox2 {
+          width: 600px;
+          margin-bottom: 2rem;
+        }
+        .searchBox2 > input {
+          width: 90%;
+        }
+      }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+          <div class="logo">
+            <img
+              class="udemyLogo cursorPointer"
+              src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg"
+              alt="Udemy logo"
+            />
+          </div>
+          <div class="firstSection">
+            <ul>
+              <li><a class="navText" href="#">Categories</a></li>
+              <li>
+                <div class="searchContainer">
+                  <button class="searchButton cursorPointer">
+                    <i class="fa fa-search searchIcon"></i>
+                  </button>
+                  <input
+                    class="searchBox"
+                    type="search"
+                    name="search"
+                    placeholder="Search for anything"
+                  />
+                </div>
+              </li>
+              <li class="navText1">
+                <a class="navText" href="#">Udemy for Business</a>
+              </li>
+              <li class="navText2">
+                <a class="navText" href="#">Teach On Udemy</a>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="secondSection">
+            <ul>
+              <li>
+                <button class="cartBtn cursorPointer">
+                  <img
+                    class="cartIcon"
+                    src="https://image.flaticon.com/icons/png/128/628/628556.png"
+                    alt="cart"
+                  />
+                </button>
+              </li>
+              <li>
+                <button class="btn-medium btn-hover1 cursorPointer">
+                  Log in
+                </button>
+              </li>
+              <li>
+                <button class="btn-medium btn-bgcolor btn-hover2 cursorPointer">
+                  Sign in
+                </button>
+              </li>
+              <li>
+                <button class="btn-medium langIconbtn cursorPointer">
+                  <img
+                    src="https://image.flaticon.com/icons/png/128/591/591788.png"
+                    alt="language logo"
+                  />
+                </button>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="smallWindow">
+            <button class="searchButton cursorPointer">
+              <i class="fa fa-search searchIcon"></i>
+            </button>
+            <button class="cartBtn cursorPointer">
+              <img
+                class="cartIcon"
+                src="https://image.flaticon.com/icons/png/128/628/628556.png"
+                alt="cart"
+              />
+            </button>
+          </div>
+        </nav>
+      </header>
+</body>
+</html>
+<script>
+    function myFunction() {
+     document.getElementById("myDropdown").classList.toggle("show");
+   }
+   window.onclick = function (event) {
+     if (!event.target.matches(".dropbtn")) {
+       var dropdowns = document.getElementsByClassName("dropdown-content");
+       var i;
+       for (i = 0; i < dropdowns.length; i++) {
+         var openDropdown = dropdowns[i];
+         if (openDropdown.classList.contains("show")) {
+           openDropdown.classList.remove("show");
+         }
+       }
+     }
+   };
+ </script>

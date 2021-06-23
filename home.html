@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Udemy_clone</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: "Roboto", sans-serif;
+      }
+      .cursorPointer:hover {
+        cursor: pointer;
+        outline: none;
+      }
+      .navText {
+        font-weight: 400;
+        color: rgb(60, 59, 55);
+        font-size: 12px;
+      }
+      header {
+        width: 100%;
+        height: 12vh;
+        -webkit-box-shadow: 0 8px 6px -6px gray;
+        -moz-box-shadow: 0 8px 6px -6px gray;
+        box-shadow: 0 8px 6px -6px gray;
+        overflow: hidden;
+      }
+      .dropbtn {
+        background-color: #3498db;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #2980b9;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
+
+      .show {
+        display: block;
+      }
+
+      /* check above code till header w3 */
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .firstSection > ul li {
+        margin: 0 0.8vw;
+      }
+      .secondSection > ul > li {
+        margin: 0 0.3vw;
+      }
+      a {
+        text-decoration: none;
+      }
+      .navbar {
+        display: flex;
+        flex-basis: 4vw;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vw;
+        margin: auto;
+      }
+      .navbar > div:nth-child(1) {
+        display: none;
+      }
+      .navbar > div:nth-child(2) {
+        flex-grow: 2;
+      }
+      .navbar > div:nth-child(3) {
+        flex-grow: 22;
+      }
+      .navbar > div:nth-child(4) {
+        flex-grow: 4;
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .udemyLogo {
+        width: 8vw;
+        height: 2.8vw;
+      }
+      .searchContainer {
+        display: flex;
+        /* flex: 1 1 50%; */
+        width: 30vw;
+        position: relative;
+        border: 0.1vw solid #ccc;
+        border-radius: 3vw;
+        overflow: hidden;
+      }
+      .searchContainer > input {
+        cursor: text;
+      }
+      .searchIcon {
+        color: gray;
+        padding: 0.5rem;
+        width: 2vw;
+      }
+
+      .searchBox {
+        border: 0;
+        padding: 0.5rem 0.5rem 0.5rem 0;
+        flex: 1;
+      }
+      .searchBox:focus {
+        outline: none;
+      }
+      .searchButton,
+      .cartBtn {
+        border: none;
+        background: transparent;
+      }
+      .searchButton {
+        padding: 0.5rem;
+      }
+      .cartBtn {
+        margin-right: 1vw;
+      }
+
+      .cartIcon {
+        color: #73726c;
+        width: 1.2rem;
+        height: 1.3rem;
+      }
+      .btn-medium {
+        height: 2.7rem;
+        width: 100px;
+        border: 1px solid rgb(40, 150, 169);
+        color: rgb(15, 124, 144);
+        font-weight: bold;
+        text-align: center;
+        border-radius: 0.2rem;
+      }
+      .btn-bgcolor {
+        color: white;
+        background-color: rgb(15, 124, 144);
+      }
+      .btn-hover1:hover {
+        color: black;
+      }
+      .btn-hover2:hover {
+        background-color: black;
+      }
+      .langIconbtn {
+        width: 2.7rem;
+        outline: none;
+      }
+
+      .langIconbtn > img {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      .smallWindow {
+        display: none;
+      }
+      @media (max-width: 1080px) {
+        .firstSection > ul > li:nth-child(3) {
+          display: none;
+        }
+        /* .searchContainer {
+               flex-grow: 2;
+             } */
+      }
+      @media (max-width: 850px) {
+        .firstSection > ul > li:nth-child(4) {
+          display: none;
+        }
+        /* .searchContainer {
+               flex-grow: 3;
+             } */
+      }
+      @media (max-width: 800px) {
+        .dropdown {
+          display: inline-block;
+          width: 5vw;
+        }
+        .smallWindow {
+          display: flex;
+          width: 15vw;
+        }
+        .smallWindow > button {
+          margin-right: 3vw;
+        }
+        .firstSection,
+        .secondSection {
+          display: none;
+        }
+
+        .navbar > div:nth-child(1) {
+          display: flex;
+          flex-grow: 1;
+        }
+        .navbar > div:nth-child(2) {
+          width: 65vw;
+          margin: auto;
+        }
+      }
+      section {
+        margin-top: 0.3vw;
+      }
+      .searchBox2 > button > img {
+        height: 16px;
+        width: 16px;
+        background-color: white;
+      }
+      .searchBox2 > button,
+      .searchBox2 > input {
+        border: none;
+        outline: none;
+        background-color: white;
+        margin-left: 0.6rem;
+        cursor: pointer;
+      }
+      .searchBox > input {
+        cursor: text;
+        width: 85%;
+      }
+      input:focus {
+        outline: none;
+      }
+
+      .searchContent {
+        display: flex;
+        flex-direction: column;
+        width: 26rem;
+        height: 14rem;
+        box-sizing: border-box;
+        margin-top: -21.5rem;
+        background-color: white;
+        margin-left: 10rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        padding: 1.6rem 1.4rem;
+        justify-content: space-between;
+      }
+      .searchContent > div:nth-child(1) {
+        font-size: 44px;
+        font-weight: bold;
+      }
+      .searchContent > div:nth-child(2) {
+        color: rgb(60, 59, 55);
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+      }
+      .searchBox2 {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: 1px solid rgb(162, 159, 146);
+        width: 22rem;
+        border-radius: 0.3rem;
+      }
+      .searchBox2 > button {
+        align-items: flex-end;
+        margin-right: 0;
+      }
+
+      .searchBox2 > input {
+        width: 18.5rem;
+        color: rgb(115, 114, 108);
+        font-size: 14px;
+        margin-left: 0.8rem;
+      }
+      .searchBox2 > input:hover {
+        cursor: text;
+      }
+      .searchBox2 > button:hover {
+        cursor: pointer;
+      }
+
+      @media (min-width: 1366px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+        .bgimage {
+          background-image: url("https://img-c.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?Expires=1622384869&Signature=BYen~JF~wKt06wmjYLb4FIghI2sv0ypZC7rsbGzhMabF1LwHvumy6k8YZQ8453jL663jdeemg4uiaMC9rKRy4ZOAY2j1~-yel7rLCihB863w7zsTnKLBTdY5lsOfrbKYYNnNZjRlf5Y2KTLsb6tN5H8W69R~-EON9tjf0w-hLAsqPLq1jwtWft51gYm3e3kN-jOIPGsBXxAz1aUMLAi7OU2BIBw-5CZh2u5EbBAEmN~xS~rv-CfaOQMw1faupgzOncYBvJHPeIE0JnHdUJwdmczio0lFcgjltN24SiY9ercOYeKQBeQDHwoPpNqJy-cRC3-4BBlExDvOwVa4UybxZA__&Key-Pair-Id=APKAITJV77WS5ZT7262A");
+          width: 85vw;
+          height: 100%;
+          margin: auto;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1366px) {
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+        .bgimage {
+          background-image: url("https://img-c.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?Expires=1622384869&Signature=BYen~JF~wKt06wmjYLb4FIghI2sv0ypZC7rsbGzhMabF1LwHvumy6k8YZQ8453jL663jdeemg4uiaMC9rKRy4ZOAY2j1~-yel7rLCihB863w7zsTnKLBTdY5lsOfrbKYYNnNZjRlf5Y2KTLsb6tN5H8W69R~-EON9tjf0w-hLAsqPLq1jwtWft51gYm3e3kN-jOIPGsBXxAz1aUMLAi7OU2BIBw-5CZh2u5EbBAEmN~xS~rv-CfaOQMw1faupgzOncYBvJHPeIE0JnHdUJwdmczio0lFcgjltN24SiY9ercOYeKQBeQDHwoPpNqJy-cRC3-4BBlExDvOwVa4UybxZA__&Key-Pair-Id=APKAITJV77WS5ZT7262A");
+          width: 100%;
+          height: 25rem;
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+        }
+        .searchContent {
+          margin-left: 5%;
+        }
+      }
+      @media (min-width: 700px) and (max-width: 1200px) {
+        .searchContent {
+          width: 21rem;
+          margin-top: -23.5rem;
+          margin-left: 1.5rem;
+        }
+        .searchContent > div:nth-child(1) {
+          font-size: 33px;
+        }
+        .searchContent > div:nth-child(2) {
+          font-size: 1rem;
+        }
+        .searchBox2 {
+          width: 18rem;
+        }
+      }
+      @media (min-width: 0px) and (max-width: 700px) {
+        .searchContent {
+          display: flex;
+          flex-direction: column;
+          height: 14rem;
+          max-width: 100%;
+          min-width: 400px;
+          margin-top: -12.6rem;
+          background-color: transparent;
+          margin-left: 0rem;
+          font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        .container {
+          width: 100vw;
+          height: 25rem;
+          margin: 0;
+        }
+        .bgimage {
+          background-image: url("https://img-c.udemycdn.com/notices/home_banner/image_udlite/8a5d045c-2dd2-4a4d-bb0e-a487af8a5aa0.jpg?Expires=1622384869&Signature=BYen~JF~wKt06wmjYLb4FIghI2sv0ypZC7rsbGzhMabF1LwHvumy6k8YZQ8453jL663jdeemg4uiaMC9rKRy4ZOAY2j1~-yel7rLCihB863w7zsTnKLBTdY5lsOfrbKYYNnNZjRlf5Y2KTLsb6tN5H8W69R~-EON9tjf0w-hLAsqPLq1jwtWft51gYm3e3kN-jOIPGsBXxAz1aUMLAi7OU2BIBw-5CZh2u5EbBAEmN~xS~rv-CfaOQMw1faupgzOncYBvJHPeIE0JnHdUJwdmczio0lFcgjltN24SiY9ercOYeKQBeQDHwoPpNqJy-cRC3-4BBlExDvOwVa4UybxZA__&Key-Pair-Id=APKAITJV77WS5ZT7262A");
+          width: 100%;
+          height: 25rem;
+          background-repeat: no-repeat;
+          background-size: 100%;
+          min-width: 700px;
+        }
+        .searchContent > div:nth-child(2) {
+          min-width: 700px;
+          margin-top: -2rem;
+        }
+        .searchContent > div:nth-child(1) {
+          margin-bottom: 2.5rem;
+          display: block;
+          font-size: 37px;
+        }
+        .searchBox2 {
+          width: 600px;
+          margin-bottom: 2rem;
+        }
+        .searchBox2 > input {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="logo">
+          <img
+            class="udemyLogo cursorPointer"
+            src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg"
+            alt="Udemy logo"
+          />
+        </div>
+        <div class="firstSection">
+          <ul>
+            <li><a class="navText" href="#">Categories</a></li>
+            <li>
+              <div class="searchContainer">
+                <button class="searchButton cursorPointer">
+                  <i class="fa fa-search searchIcon"></i>
+                </button>
+                <input
+                  class="searchBox"
+                  type="search"
+                  name="search"
+                  placeholder="Search..."
+                />
+              </div>
+            </li>
+            <li>
+              <a class="navText" href="#">Udemy for Business</a>
+            </li>
+            <li>
+              <a class="navText" href="#">Teach On Udemy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="secondSection">
+          <ul>
+            <li>
+              <button class="cartBtn cursorPointer">
+                <img
+                  class="cartIcon"
+                  src="https://image.flaticon.com/icons/png/128/628/628556.png"
+                  alt="cart"
+                />
+              </button>
+            </li>
+            <li>
+              <button class="btn-medium btn-hover1 cursorPointer">
+                Log in
+              </button>
+            </li>
+            <li>
+              <button class="btn-medium btn-bgcolor btn-hover2 cursorPointer">
+                Sign in
+              </button>
+            </li>
+            <li>
+              <button class="btn-medium langIconbtn cursorPointer">
+                <img
+                  src="https://image.flaticon.com/icons/png/128/591/591788.png"
+                  alt="language logo"
+                />
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="smallWindow">
+          <button class="searchButton cursorPointer">
+            <i class="fa fa-search searchIcon"></i>
+          </button>
+          <button class="cartBtn cursorPointer">
+            <img
+              class="cartIcon"
+              src="https://image.flaticon.com/icons/png/128/628/628556.png"
+              alt="cart"
+            />
+          </button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="container">
+        <div class="bgimage"></div>
+        <div class="searchContent">
+          <div><span>Dream up</span></div>
+          <div>
+            <span
+              >Ambition accepted. Learn the latest skills to reach your
+              professional goals.</span
+            >
+          </div>
+          <div class="searchBox2">
+            <input type="search" placeholder="What do you want to learn?" />
+            <button>
+              <img
+                src="https://image.flaticon.com/icons/png/512/482/482631.png"
+                alt="search logo"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script>
+  /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches(".dropbtn")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
+        }
+      }
+    }
+  };
+</script>

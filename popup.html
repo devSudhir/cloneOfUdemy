@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+      data-auto-a11y="true"
+    ></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <button onclick="showbigpopup(Math.floor(Math.random() * 7))">
+      clickme
+    </button>
+    <div id="black_overlay">
+      <div id="whitespace">
+        <div id="rightCrossButton">
+          <h2>Added to cart</h2>
+          <button id="close_black_overlay">&times;</button>
+        </div>
+
+        <div id="buy1">
+          <div id="tick">
+            <i class="fas fa-check-circle fa-2x" style="color: green"></i>
+          </div>
+
+          <div id="buy_one_course"></div>
+
+          <div id="buyBtn">
+            <a href="after_cart.html">Go to cart</a>
+          </div>
+        </div>
+
+        <div id="buy_two_course">
+          <h2>Frequently bought together</h2>
+
+          <div id="buy_two_course1"></div>
+
+          <div id="buy_two_course2">
+            <img src="https://source.unsplash.com/1600x900/?nature,water" />
+            <h2>course name</h2>
+            <h3>price</h3>
+          </div>
+
+          <div id="plusIcon">
+            <i class="fas fa-plus-circle fa-3x" style="color: #0f7c90"></i>
+          </div>
+
+          <div id="priceof2">
+            <span style="display: flex; align-items: center">
+              <p style="padding: 5px 10px">Total price:</p>
+              <h2>3000</h2>
+              <p style="padding: 5px 10px">10000</p>
+            </span>
+            <a
+              href="after_cart.html"
+              onclick="addRelativeCourseToCartItem(event)"
+              >Add all to cart</a
+            >
+          </div>
+        </div>
+        <div id="related">
+          <h2>Related Topics</h2>
+          <a>Machine Learning</a>
+          <a>Data Science</a>
+          <a>JavaScript</a>
+          <a>Database</a>
+          <a>Django</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
